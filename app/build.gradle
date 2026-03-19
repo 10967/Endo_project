@@ -1,8 +1,9 @@
 plugins {
+
     id 'com.android.application'
     id 'com.google.gms.google-services'
 }
-
+apply plugin: 'org.sonarqube'
 android {
     namespace 'com.spmenais.paincare'
     compileSdk 34
@@ -82,4 +83,15 @@ dependencies {
     implementation 'com.github.prolificinteractive:material-calendarview:1.6.0'
 
     implementation 'com.google.code.findbugs:jsr305:3.0.2'
+}
+sonar {
+    properties {
+        property "sonar.projectKey", "Endo_project"
+        property "sonar.projectName", "Endo_project"
+        property "sonar.organization", "malak-arhnouch"
+        property "sonar.host.url", "https://sonarcloud.io"
+        property "sonar.sources", "app/src/main"
+        property "sonar.tests", "app/src/test"
+        property "sonar.java.source", "11"
+    }
 }
