@@ -17,8 +17,8 @@ RUN sdkmanager "platforms;android-33" "build-tools;33.0.2" "platform-tools"
 
 WORKDIR /app
 COPY . .
-RUN chmod +x gradlew
-RUN ./gradlew assembleDebug --no-daemon
+RUN ls -la && chmod +x gradlew && ls -la gradlew
+RUN bash gradlew assembleDebug --no-daemon
 
 FROM python:3.11-alpine
 WORKDIR /apk
