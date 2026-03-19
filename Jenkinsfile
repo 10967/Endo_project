@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_IMAGE = "oumaima442/endo-mhealth"
+        DOCKER_IMAGE = "malak000/endo-mhealth"
         DOCKER_TAG = "${BUILD_NUMBER}"
         SONAR_HOST_URL = "https://sonarcloud.io"
         ANDROID_HOME = "C:\\Users\\malak\\AppData\\Local\\Android\\Sdk"
