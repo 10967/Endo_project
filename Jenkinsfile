@@ -49,7 +49,7 @@ pipeline {
                         -Dsonar.projectName=Endo_project ^
                         -Dsonar.organization=10967 ^
                         -Dsonar.host.url=https://sonarcloud.io ^
-                        -Dsonar.token=%SONAR_TOKEN% ^
+                        -Dsonar.token=%SONAR_AUTH_TOKEN% ^
                         --no-daemon"""
                 }
                 timeout(time: 5, unit: 'MINUTES') {
