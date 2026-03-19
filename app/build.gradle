@@ -86,9 +86,9 @@ dependencies {
 }
 sonar {
     properties {
-        property "sonar.projectKey", "Endo_project"
+        property "sonar.projectKey", "10967_Endo_project"
         property "sonar.projectName", "Endo_project"
-        property "sonar.organization", "malak-arhnouch"
+        property "sonar.organization", "10967"
         property "sonar.host.url", "https://sonarcloud.io"
         property "sonar.sources", "src/main"
         property "sonar.tests", "src/test"

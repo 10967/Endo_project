@@ -45,9 +45,9 @@ pipeline {
             steps {
                 withSonarQubeEnv('SonarQube-Local') {
                     bat """gradlew.bat sonar ^
-                        -Dsonar.projectKey=Endo_project ^
+                        -Dsonar.projectKey=10967_Endo_project ^
                         -Dsonar.projectName=Endo_project ^
-                        -Dsonar.organization=malak-arhnouch ^
+                        -Dsonar.organization=10967 ^
                         -Dsonar.host.url=https://sonarcloud.io ^
                         -Dsonar.token=%SONAR_TOKEN% ^
                         --no-daemon"""
