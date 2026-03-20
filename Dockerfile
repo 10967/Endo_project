@@ -17,7 +17,7 @@ RUN sdkmanager "platforms;android-33" "build-tools;33.0.2" "platform-tools"
 
 WORKDIR /app
 COPY . .
-RUN apt-get install -y dos2unix && dos2unix gradlew && chmod +x gradlew
+RUN apt-get update && apt-get install -y dos2unix && dos2unix gradlew && chmod +x gradlew
 RUN ./gradlew assembleDebug --no-daemon
 
 FROM python:3.11-alpine
