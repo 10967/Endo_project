@@ -50,8 +50,8 @@ pipeline {
                                 -Dsonar.organization=10967 ^
                                 -Dsonar.host.url=https://sonarcloud.io ^
                                 -Dsonar.token=%SONAR_AUTH_TOKEN% ^
-                                -Dsonar.coverage.jacoco.xmlReportPaths=app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml ^
-                                --no-daemon"""
+                                -Dsonar.coverage.jacoco.xmlReportPaths=%WORKSPACE%\\app\\build\\reports\\jacoco\\jacocoTestReport\\jacocoTestReport.xml ^
+                                  --no-daemon"""
                         }
                         timeout(time: 5, unit: 'MINUTES') {
                             waitForQualityGate abortPipeline: true
