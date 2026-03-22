@@ -27,37 +27,38 @@ pipeline {
             }
         }
         stage('3 - Tests Unitaires') {
-            steps {
-                bat 'gradlew.bat test --no-daemon'
-                echo "Tests unitaires termines"
-            }
-            post {
-                always {
-                    junit testResults: 'app/build/test-results/**/*.xml',
-                        allowEmptyResults: true
+                    steps {
+                        bat 'gradlew.bat testDebugUnitTest jacocoTestReport --no-daemon'
+                        echo "Tests unitaires et rapport JaCoCo termines"
+                    }
+                    post {
+                        always {
+                            junit testResults: 'app/build/test-results/**/*.xml',
+                                allowEmptyResults: true
+                        }
+                        failure {
+                            echo "ECHEC tests - deploiement bloque"
+                        }
+                    }
                 }
-                failure {
-                    echo "ECHEC tests - deploiement bloque"
+                stage('4 - Analyse SonarQube') {
+                    steps {
+                        withSonarQubeEnv('SonarQube-Local') {
+                            bat """gradlew.bat sonar ^
+                                -Dsonar.projectKey=10967_Endo_project ^
+                                -Dsonar.projectName=Endo_project ^
+                                -Dsonar.organization=10967 ^
+                                -Dsonar.host.url=https://sonarcloud.io ^
+                                -Dsonar.token=%SONAR_AUTH_TOKEN% ^
+                                -Dsonar.coverage.jacoco.xmlReportPaths=app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml ^
+                                --no-daemon"""
+                        }
+                        timeout(time: 5, unit: 'MINUTES') {
+                            waitForQualityGate abortPipeline: true
+                        }
+                        echo "Quality Gate passe"
+                    }
                 }
-            }
-        }
-        stage('4 - Analyse SonarQube') {
-            steps {
-                withSonarQubeEnv('SonarQube-Local') {
-                    bat """gradlew.bat sonar ^
-                        -Dsonar.projectKey=10967_Endo_project ^
-                        -Dsonar.projectName=Endo_project ^
-                        -Dsonar.organization=10967 ^
-                        -Dsonar.host.url=https://sonarcloud.io ^
-                        -Dsonar.token=%SONAR_AUTH_TOKEN% ^
-                        --no-daemon"""
-                }
-                timeout(time: 5, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: true
-                }
-                echo "Quality Gate passe"
-            }
-        }
         stage('5 - Docker Build et Push') {
             steps {
                 bat "docker build -t %DOCKER_IMAGE%:%DOCKER_TAG% ."
