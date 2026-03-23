@@ -4,7 +4,6 @@ public class Users {
     String UserId, name,email,imageUrl;
 
     public Users() {
-        ERREUR_VOLONTAIRE
     }
 
     public Users(String userId, String userName) {
