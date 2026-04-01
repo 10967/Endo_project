@@ -26,7 +26,7 @@
     <string name="score_label">Score:</string>
     <string name="report_label">Report</string>
     <string name="open_report_button_label">Open Report</string>
-
+    <!-- updated10 -->
     <string name="diagnostic_label">Diagnostic test:</string>
     <string name="weight_data">Enter your weight in kg </string>
     <string name="height_data">Enter your height in cm</string>
