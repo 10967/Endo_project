@@ -55,8 +55,4 @@ public class Users {
     public void setName(String userName) {
         name = userName;
     }
-    public String getPassword() {
-    String password = "admin1234";
-    return password;
-}
 }
