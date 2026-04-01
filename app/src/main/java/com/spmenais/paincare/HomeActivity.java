@@ -16,7 +16,7 @@ import com.spmenais.paincare.Fragments.HomeFragment;
 import com.spmenais.paincare.Fragments.SymptomsTrackFragment;
 
 public class HomeActivity extends AppCompatActivity {
-
+//// BF-2
     private int selectedTab = 1 ; // 1 because first tab is selected by default
     @Override
     protected void onCreate(Bundle savedInstanceState) {
