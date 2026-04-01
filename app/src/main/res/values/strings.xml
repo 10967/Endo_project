@@ -9,7 +9,7 @@
     <string name="submit">Submit</string>
     <string name="save">Save</string>
     <string name="delete">Delete</string>
-
+    <!-- updated -->
     <string name="update_event_title_hint">Update Event Title</string>
     <string name="update_event_note_hint">Update Event Note</string>
     <string name="title_prefix">Title : </string>
