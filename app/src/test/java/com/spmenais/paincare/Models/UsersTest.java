@@ -15,7 +15,7 @@ public class UsersTest {
     @Test
     public void constructeurDeuxParams_assigneIdEtNom() {
         Users user = new Users("u1", "Malak");
-        assertEquals("ERREUR", user.getUserId());
+        assertEquals("u1", user.getUserId());
         assertEquals("Malak", user.getName());
     }
 
