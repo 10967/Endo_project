@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.spmenais.paincare.Authentification.Authentification;
-
+// BF-1
 public class MainActivity extends AppCompatActivity {
 
     private TextView appTitle;
