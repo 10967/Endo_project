@@ -30,7 +30,7 @@ public class UsersTest {
     @Test
     public void constructeurQuatreParams_assigneTousLesChamps() {
         Users user = new Users("u1", "Malak", "malak@test.com", "http://img.jpg");
-        assertEquals("u1", user.getUserId());
+        assertEquals("ERREUR", user.getUserId());;
         assertEquals("Malak", user.getName());
         assertEquals("malak@test.com", user.getEmail());
         assertEquals("http://img.jpg", user.getImageUrl());
