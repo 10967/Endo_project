@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.spmenais.paincare.Authentification.Authentification;
 // BF-1
 public class MainActivity extends AppCompatActivity {
-
+    // BF-3
     private TextView appTitle;
     TextView appName;
     private ImageView logo;
